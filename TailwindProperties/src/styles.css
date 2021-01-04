@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'HansonBold';
+    src: url(../../Fonts/HansonBold.ttf);
+}
+
+@font-face {
+    font-family: 'RadioGrotesk';
+    src: url(../../Fonts/RadioGrotesk-Regular.otf);
+}
