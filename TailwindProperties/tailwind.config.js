@@ -17,6 +17,12 @@ module.exports = {
         body: ['HansonBold', 'Russo One'],
         sub: ['RadioGrotesk']
       },
+      height: {
+        'gameSize': '32rem',
+       },
+       width: {
+        'gameSize': '32rem',
+       }
     },
   },
   variants: {
