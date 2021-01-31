@@ -22,7 +22,7 @@ animate();
 // event listeners
 window.addEventListener('keydown', function(e) {
     keys = [];
-    keys[e.keyCode] = true; // Might not work
+    keys[e.keyCode] = true;
 
     if (keys[37] || keys[38] || keys[39] || keys[34]) {
         frogger.jump();
@@ -37,7 +37,7 @@ window.addEventListener('keyup', function(e) {
 
 function scored() {
     score++;
-    gameSpeed += .2;
+    gameSpeed += .1;
     frogger.x = canvas.width / 2 - frogger.width;
     frogger.y = canvas.width - frogger.height - 40;
 }

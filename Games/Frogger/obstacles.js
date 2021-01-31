@@ -66,7 +66,7 @@ function initObstacles() {
     // Third lane
     for (let i = 0; i < 2; i++) {
         let x = i * 400;
-        carsArray.push(new Obstacle(x, canvas.height - grid * 4 - 20, grid * 2, grid, -0.9, 'car'));
+        carsArray.push(new Obstacle(x, canvas.height - grid * 4 - 20, grid * 2, grid, 0.9, 'car'));
     }
 
     // Fourth lane
@@ -106,7 +106,15 @@ function handleObstacles() {
         safe = false;
         for (let i = 0; i < logsArray.length; i++) {
             if (collision(frogger, logsArray[i])) {
-                frogger.x += logsArray[i].speed;
+                // Frogger is on a log
+                if (frogger.y < 250 && frogger.y > 185) {
+                    frogger.x += logsArray[i].speed - (gameSpeed - 1);
+                }
+                // Frogger is on a turtle
+                else if (frogger.y < 185 && frogger.y > 100) {
+                    frogger.x += logsArray[i].speed + (gameSpeed - 1);
+                }
+                
                 safe = true;
             }
         }

@@ -13,3 +13,8 @@
     font-family: 'RadioGrotesk';
     src: url(../../Fonts/RadioGrotesk-Regular.otf);
 }
+
+@font-face {
+    font-family: 'Square';
+    src: url(../../Fonts/Square-Regular.otf);
+}

@@ -12,10 +12,12 @@ module.exports = {
         'light-blue-color': '#066f8b',
         'off-white-color': '#FDFDFD',
         'off-gray-color': '#f5f0ed',
+        'black-bg-color' : '#050a0e',
       },
       fontFamily: {
         body: ['HansonBold', 'Russo One'],
-        sub: ['RadioGrotesk']
+        sub: ['RadioGrotesk'],
+        signature: ['Square']
       },
       height: {
         'gameSize': '32rem',

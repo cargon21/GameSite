@@ -50,8 +50,8 @@ class Frogger {
     }
 
     draw() {
-        ctx3.drawImage(froggerSprite, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, this.x -25, this.y -25, this.width * 2, this.height * 2);
-
+        ctx3.drawImage(froggerSprite, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, 
+                       this.x -25, this.y -25, this.width * 2, this.height * 2);
     }
 
     jump() {
