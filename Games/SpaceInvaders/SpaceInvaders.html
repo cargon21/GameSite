@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+    This game was created following Frederik De Bleser's "Creating Space Invaders in JavaScript" Series on youtube
+    Youtube link: https://www.youtube.com/watch?v=H5Stvl_kzag
+
+    Elements are created by Kenny
+    https://kenney.nl/assets/space-shooter-redux
+    License: CC0 1.0 Universal
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Invader Game</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <header>Space Invader Game</header>
+    <div class="game-wrapper">
+      <div class="game"></div>
+      <div class="congratulations">
+        <h1>You Win!</h1>
+        <button class="btn" onclick="window.location.reload()">Restart</button>
+      </div>
+      <div class="game-over">
+        <h1>GAME OVER</h1>
+        <h2>You lost</h2>
+        <button class="btn" onclick="window.location.reload()">Restart</button>
+      </div>
+    </div>
+    <footer>Use the arrowkeys to move, use the spacebar to shoot</footer>
+  <script src="SpaceInvaders.js"></script>
+</body>
+
+</html>
