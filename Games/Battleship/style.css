@@ -2,6 +2,11 @@ body {
   margin: 0;
   background-color: #050a0e;
   overflow-x: hidden;
+  background-image: url("/Games/Battleship/BSImages/Arcade1.jpg");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 *, *::before, *::after {
