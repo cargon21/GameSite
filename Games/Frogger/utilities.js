@@ -1,3 +1,4 @@
+// Handles the animations
 function animate() {
     ctx1.clearRect(0, 0, canvas.width, canvas.height);
     ctx2.clearRect(0, 0, canvas.width, canvas.height);
@@ -19,7 +20,7 @@ function animate() {
 
 animate();
 
-// event listeners
+// Event listeners
 window.addEventListener('keydown', function(e) {
     keys = [];
     keys[e.keyCode] = true;
@@ -54,6 +55,7 @@ function handleScoreBoard() {
     ctx4.strokeText('Game Speed: ' + gameSpeed.toFixed(1), 10, 195);
 }
 
+// Collision detection
 function collision(frog, obstacle) {
     return !( frog.x > obstacle.x + obstacle.width ||
               frog.x + frog.width < obstacle.x ||

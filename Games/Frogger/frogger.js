@@ -6,14 +6,12 @@ class Frogger {
         this.height = this.spriteHeight / 5;
         this.x = canvas.width / 2 - this.width;
         this.y = canvas.width - this.height - 40;
-        // this.x = canvas.width / 2 - this.width / 2;
-        // this.y = canvas.height - this.height - 2;
         this.moving = false;
         this.frameX = 0;
         this.frameY = 0;
-
     }
 
+    //  Checks to see if the user makes the frog move
     update() {
         if (keys[38]) { // Up
             if (this.moving === false) { 
@@ -44,16 +42,18 @@ class Frogger {
                 this.frameY = 1;
             }
         }
-        if (this.y < 0) {
+        if (this.y < 0) { // Player wins the game
             scored();
         }
     }
 
+    // Draws the frog
     draw() {
         ctx3.drawImage(froggerSprite, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, 
                        this.x -25, this.y -25, this.width * 2, this.height * 2);
     }
 
+    // Jump animation
     jump() {
         if (this.moving === false) {
             this.frameX = 1;
@@ -64,5 +64,5 @@ class Frogger {
     }
 }
 
+// Frogger object
 const frogger = new Frogger();
-

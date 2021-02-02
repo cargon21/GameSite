@@ -12,6 +12,7 @@ class Obstacle {
         this.carType = (Math.floor(Math.random() * numberOfCars));
     }
 
+    // Draws the obstacles
     draw() {
         if (this.type == 'turtle') {
             if (frame % this.randomise === 0) {
@@ -27,10 +28,9 @@ class Obstacle {
         else {
             ctx2.drawImage(car, this.frameX * this.width, this.carType * this.height , grid * 2, grid, this.x, this.y, this.width, this.height);
         }
-        // ctx3.fillStyle = 'purple';
-        // ctx3.fillRect(this.x, this.y, this.width, this.height);
     }
 
+    // Resets the car when it leaves the screen
     update() {
         this.x += this.speed * gameSpeed;
         if (this.speed > 0) {
@@ -50,6 +50,7 @@ class Obstacle {
     }
 }
 
+// Places the game obstacles
 function initObstacles() {
     // First lane
     for (let i = 0; i < 2; i++) {
@@ -85,6 +86,8 @@ function initObstacles() {
 initObstacles();
 
 function handleObstacles() {
+
+    // Updates the positions of the obstacles
     for(let i = 0; i < carsArray.length; i++) {
         carsArray[i].update();
         carsArray[i].draw();
@@ -94,7 +97,8 @@ function handleObstacles() {
         logsArray[i].update();
         logsArray[i].draw();
     }
-    // Collision
+
+    // Collision detections
     for(let i = 0; i < carsArray.length; i++) {
         if (collision(frogger, carsArray[i])) {
             ctx4.drawImage(collisions, 0, 100, 100, 100, frogger.x, frogger.y, 50, 50);
@@ -102,6 +106,7 @@ function handleObstacles() {
         }
     }
 
+    // Checks to see if frogger is in the river
     if (frogger.y < 250 && frogger.y > 100 ) {
         safe = false;
         for (let i = 0; i < logsArray.length; i++) {
@@ -114,10 +119,11 @@ function handleObstacles() {
                 else if (frogger.y < 185 && frogger.y > 100) {
                     frogger.x += logsArray[i].speed + (gameSpeed - 1);
                 }
-                
                 safe = true;
             }
         }
+        
+        // Frogger has landed in the water and the game resets
         if (!safe) {
             for (let i = 0; i < 30; i++) {
                 ripplesArray.unshift(new Particle(frogger.x, frogger.y))

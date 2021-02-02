@@ -23,7 +23,7 @@ const ctx5 = canvas5.getContext('2d');
 canvas5.width = 600;
 canvas5.height = 600;  
 
-// global variables
+// Global variables
 const grid = 80;
 let keys = [];
 let score = 0;

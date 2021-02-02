@@ -6,9 +6,9 @@ class Particle {
         this.opacity = 1;
         this.directionX = Math.random() * 1 - 0.5;
         this.directionY = Math.random() * 1 - 0.5;
-
     }
 
+    // Draws the smoke
     draw() {
         ctx3.fillStyle = 'rgba(150,150,150,' + this.opacity + ')';
         ctx3.beginPath();
@@ -17,6 +17,7 @@ class Particle {
         ctx3.closePath();
     }
 
+    // Fades the smoke
     update() {
         this.x += this.directionX;
         this.y += this.directionY;
@@ -28,6 +29,7 @@ class Particle {
         }
     }
 
+    // Draws the water ripples
     drawRipples() {
         ctx1.strokeStyle = 'rgba(250,250,250,' + this.opacity + ')';
         ctx1.beginPath();
@@ -36,12 +38,12 @@ class Particle {
         ctx1.closePath();
     }
 
+    // Fades the water ripples
     ripple() {
         if (this.radius < 50) {
             this.radius += 0.5;
             this.x -= 0.009;
             this.y -= 0.009;
-
         }
         if (this.opacity > 0) {
             this.opacity -= 0.01;
