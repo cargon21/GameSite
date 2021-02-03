@@ -17,6 +17,7 @@ const left = new Audio();
 const right = new Audio();
 const down = new Audio();
 
+// Audio Sources
 dead.src = "Audio/dead.mp3";
 eat.src = "Audio/eat.mp3";
 up.src = "Audio/up.mp3";
@@ -25,12 +26,15 @@ right.src = "Audio/right.mp3";
 down.src = "Audio/down.mp3";
 
 let snake = [];
+let isDead = false;
 
+// Sets the position of the snake head
 snake[0] = {
     x : 9 * box,
     y : 10 * box
 }
 
+// Randomizes the position of the apple
 let food = {
     x : Math.floor(Math.random() * 17 + 1) * box,
     y : Math.floor(Math.random() * 15 + 3) * box
@@ -39,31 +43,38 @@ let food = {
 // Create the score variable
 let score = 0;
 
-
-// Control the snake
+// Snake controller
 let d;
 document.addEventListener("keydown", direction);
 
 function direction(event) {
     if (event.keyCode == 37 && d!= "RIGHT") {
-        left.play();
+        if (!isDead) {
+            left.play();
+        }
         d = "LEFT";
     }
     else if (event.keyCode == 38 && d!= "DOWN") {
-        up.play();
+        if (!isDead) { // Only plays the audio if the snake is alive
+            up.play();
+        }
         d = "UP";
     }
     else if (event.keyCode == 39 && d!= "LEFT") {
-        right.play();
+        if (!isDead) {
+            right.play();
+        }
         d = "RIGHT";
     }
     else if (event.keyCode == 40 && d!= "UP") {
-        down.play();
+        if (!isDead) {
+            down.play();
+        }
         d = "DOWN";
     }
 }
 
-// Checks collision
+// Checks for collision
 function collision(head, array) {
     for(let i = 0; i < array.length; i++) {
         if (head.x == array[i].x && head.y == array[i].y) {
@@ -73,6 +84,7 @@ function collision(head, array) {
     return false;
 }
 
+// Draws the gameboard
 function draw() {
     ctx.drawImage(ground, 0, 0);
 
@@ -121,6 +133,7 @@ function draw() {
     if(snakeX < box || snakeX > 17 * box || snakeY < 3 * box || snakeY > 17 * box || collision(newHead, snake)) {
         clearInterval(game);
         dead.play();
+        isDead = true;
     }
 
     snake.unshift(newHead)
@@ -128,7 +141,6 @@ function draw() {
     ctx.fillStyle = "white";
     ctx.font = "45px Changa one";
     ctx.fillText(score, 2 * box, 1.6 * box);
-
 }
 
 let game = setInterval(draw, 100);
